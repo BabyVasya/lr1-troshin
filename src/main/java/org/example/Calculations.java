@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Scanner;
+
 public class Calculations {
 
     public int addition(int a, int b) {
@@ -23,5 +25,16 @@ public class Calculations {
         if(typeOfOp.contains("/")) return division(num1, num2);
         else throw new RuntimeException("Такой операции не предусмотрено");
     };
+
+    public void romanOrArabic() {
+
+        NumberIdentifier n = new NumberIdentifier();
+
+
+
+
+
+
+    }
 
 }

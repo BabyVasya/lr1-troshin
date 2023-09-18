@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -24,7 +25,7 @@ public class RomanCalcs extends Calculations {
         int prev =0;
         for(int i = s.length()-1; i>=0; i-- ) {
             int curr = map.get(s.charAt(i));
-            if(curr < prev) { //IV
+            if(curr < prev) {
                 result -= curr;
             } else {
                 result +=curr;
@@ -42,7 +43,7 @@ public class RomanCalcs extends Calculations {
 
     public String intArabToRoman(int num) {
         if (num <= 0 || num > 3999) {
-            throw new IllegalArgumentException("Число должно быть в диапазоне от 1 до 3999");
+            throw new IllegalArgumentException("Число должно быть в диапазоне от 1 до 3999(Скорее всего неположительный результат)");
         }
 
         StringBuilder romanNumeral = new StringBuilder();
@@ -61,12 +62,11 @@ public class RomanCalcs extends Calculations {
 
  // результирующая функция
     public String calculationsOfRomanNumbers(String[] operands, String typeOfOpFromExpression) {
-        NumberIdentifier n = new NumberIdentifier();
-        if (!n.validationOfComingData(operands, typeOfOpFromExpression)) throw new RuntimeException("Ошибка валидации данных");
         RomanCalcs r = new RomanCalcs();
         Calculations c = new Calculations();
         int resultOfoperationInt = c.makingPointedOperationWithInts(r.romanToIntArab(operands[0]), r.romanToIntArab(operands[1]), typeOfOpFromExpression);
-        return  r.intArabToRoman(resultOfoperationInt);
+        return r.intArabToRoman(resultOfoperationInt);
     };
+
 
 }
